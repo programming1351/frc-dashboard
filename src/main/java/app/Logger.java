@@ -56,10 +56,8 @@ public class Logger extends Window {
 //            d.place();
 //        }
         nt = NetworkTableInstance.getDefault();
-        nt.setServerTeam(1351);
-        nt.startDSClient();
 
-        table = nt.getTable("Log");
+        table = nt.getTable("SmartDashboard");
 
         showWindow();
 
@@ -80,19 +78,19 @@ public class Logger extends Window {
 //                d.updateValue(((int) (Math.random() * 3) - 1) * (int) (Math.random() * Math.pow(10, 0 + (int) (Math.random() * 5))));
 //            }
 //        }
-        for (String key : table.getKeys()) {
-            if (table.getValue(key).getStringArray() == null) continue;
-            String[] data = table.getValue(key).getStringArray();
-            ArrayList<Pair> newData = convertData(data);
-            if (panels.containsKey(key)) {
-                panels.get(key).update(newData);
-            } else {
-                panels.put(key, new TextDisplay(key, 0, 0, getTypes(), this, newData));
-                this.add(panels.get(key));
-                panels.get(key).place();
-            }
-            table.putValue(key, NetworkTableValue.makeStringArray(null));
-        }
+//        for (String key : table.getKeys()) {
+//            if (table.getValue(key).getStringArray() == null) continue;
+//            String[] data = table.getValue(key).getStringArray();
+//            ArrayList<Pair> newData = convertData(data);
+//            if (panels.containsKey(key)) {
+//                panels.get(key).update(newData);
+//            } else {
+//                panels.put(key, new TextDisplay(key, 0, 0, getTypes(), this, newData));
+//                this.add(panels.get(key));
+//                panels.get(key).place();
+//            }
+//            table.putValue(key, NetworkTableValue.makeStringArray(null));
+//        }
 
         for (Component c : getComponents()) c.repaint();
 

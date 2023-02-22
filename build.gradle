@@ -43,31 +43,26 @@ nativeConfig.dependencies.add wpilibTools.deps.wpilib("ntcore")
 
 nativeConfig.dependencies.add wpilibTools.deps.cscore()
 
-
-dependencies {
-
-    implementation wpilibTools.deps.wpilibJava("wpiutil")
-
-    implementation wpilibTools.deps.wpilibJava("wpimath")
-
-    implementation wpilibTools.deps.wpilibJava("wpinet")
-
-    implementation wpilibTools.deps.wpilibJava("ntcore")
-
-    implementation wpilibTools.deps.wpilibJava("cscore")
-
-
-    implementation group: "com.fasterxml.jackson.core", name: "jackson-annotations", version: wpi.versions.jacksonVersion.get()
-
-    implementation group: "com.fasterxml.jackson.core", name: "jackson-core", version: wpi.versions.jacksonVersion.get()
-
-    implementation group: "com.fasterxml.jackson.core", name: "jackson-databind", version: wpi.versions.jacksonVersion.get()
-
-
-    implementation group: "org.ejml", name: "ejml-simple", version: wpi.versions.ejmlVersion.get()
-
+repositories {
+    maven { url "https://frcmaven.wpi.edu/artifactory/release/" }
 }
 
+
+dependencies {
+    // Add ntcore-java
+    implementation "edu.wpi.first.ntcore:ntcore-java:2021.3.1"
+
+    // Add wpiutil-java
+    implementation "edu.wpi.first.wpiutil:wpiutil-java:2021.3.1"
+
+    // Add ntcore-jni for runtime. We are adding all supported platforms
+    // so that our application will work on all supported platforms.
+    implementation "edu.wpi.first.ntcore:ntcore-jni:2021.3.1:windowsx86"
+    implementation "edu.wpi.first.ntcore:ntcore-jni:2021.3.1:windowsx86-64"
+    implementation "edu.wpi.first.ntcore:ntcore-jni:2021.3.1:linuxx86-64"
+    implementation "edu.wpi.first.ntcore:ntcore-jni:2021.3.1:linuxraspbian"
+    implementation "edu.wpi.first.ntcore:ntcore-jni:2021.3.1:osxx86-64"
+}
 
 shadowJar {
 

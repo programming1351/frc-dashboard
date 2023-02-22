@@ -1,23 +1,24 @@
 {
-  "osx": {
-    "universal": [
-      "/osx/universal/shared/libwpinet.dylib",
-      "/osx/universal/shared/libwpimath.dylib",
-      "/osx/universal/shared/libwpinetjni.dylib",
-      "/osx/universal/shared/libcscorejnicvstatic.dylib",
-      "/osx/universal/shared/libntcorejni.dylib",
-      "/osx/universal/shared/libntcore.dylib",
-      "/osx/universal/shared/libwpiutil.dylib",
-      "/osx/universal/shared/libwpimathjni.dylib",
-      "/osx/universal/shared/libwpiutiljni.dylib"
+  "versions": [
+    "wpimath-cpp-2023.2-windowsx86-64.1-windowsx86-64 (edu.wpi.first.wpimath:wpimath-cpp:2023.2.1)",
+    "wpinet-cpp-2023.2-windowsx86-64.1-windowsx86-64 (edu.wpi.first.wpinet:wpinet-cpp:2023.2.1)",
+    "wpiutil-cpp-2023.2-windowsx86-64.1-windowsx86-64 (edu.wpi.first.wpiutil:wpiutil-cpp:2023.2.1)",
+    "ntcore-cpp-2023.2-windowsx86-64.1-windowsx86-64 (edu.wpi.first.ntcore:ntcore-cpp:2023.2.1)",
+    "cscore-jnicvstatic-2023.2-windowsx86-64.1-windowsx86-64 (edu.wpi.first.cscore:cscore-jnicvstatic:2023.2.1)"
+  ],
+  "windows": {
+    "x86-64": [
+      "/windows/x86-64/shared/cscorejnicvstatic.dll",
+      "/windows/x86-64/shared/ntcore.dll",
+      "/windows/x86-64/shared/ntcorejni.dll",
+      "/windows/x86-64/shared/WindowsLoaderHelper.dll",
+      "/windows/x86-64/shared/wpimath.dll",
+      "/windows/x86-64/shared/wpimathjni.dll",
+      "/windows/x86-64/shared/wpinet.dll",
+      "/windows/x86-64/shared/wpinetjni.dll",
+      "/windows/x86-64/shared/wpiutil.dll",
+      "/windows/x86-64/shared/wpiutiljni.dll"
     ]
   },
-  "versions": [
-    "wpimath-cpp-2023.2-osxuniversal.1-osxuniversal (edu.wpi.first.wpimath:wpimath-cpp:2023.2.1)",
-    "wpinet-cpp-2023.2-osxuniversal.1-osxuniversal (edu.wpi.first.wpinet:wpinet-cpp:2023.2.1)",
-    "wpiutil-cpp-2023.2-osxuniversal.1-osxuniversal (edu.wpi.first.wpiutil:wpiutil-cpp:2023.2.1)",
-    "ntcore-cpp-2023.2-osxuniversal.1-osxuniversal (edu.wpi.first.ntcore:ntcore-cpp:2023.2.1)",
-    "cscore-jnicvstatic-2023.2-osxuniversal.1-osxuniversal (edu.wpi.first.cscore:cscore-jnicvstatic:2023.2.1)"
-  ],
-  "hash": "3e06a680a364a286b67749aaea6d868d"
+  "hash": "c482a1a31f5a1aa3450edad85cf3d680"
 }

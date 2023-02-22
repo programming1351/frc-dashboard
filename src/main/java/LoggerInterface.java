@@ -1,30 +1,39 @@
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.networktables.NetworkTableValue;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.io.IOException;
 
 public class LoggerInterface {
-    private final NetworkTableInstance nt;
-    private final NetworkTable table;
-
+    private static NetworkTable table;
     public LoggerInterface() {
-        nt = NetworkTableInstance.getDefault();
-        nt.setServerTeam(1351);
-        nt.startDSClient();
 
-        table = nt.getTable("Log");
     }
 
-    public void put(String key, Object value) {
-        if (table.getValue(key) == null || table.getValue(key).getStringArray() == null) {
-            table.putValue(key, NetworkTableValue.makeStringArray(new String[]{System.currentTimeMillis() + "|" + value}));
-        } else {
-            ArrayList<String> s = new ArrayList<>(List.of(table.getValue(key).getStringArray()));
-            s.add(System.currentTimeMillis() + "|" + value);
-            table.putValue(key, NetworkTableValue.makeStringArray((String[]) new ArrayList<String>().toArray()));
+
+    public static void create() throws IOException {
+
+        NetworkTableInstance inst = NetworkTableInstance.getDefault();
+        inst.startClient("10.13.51.2", 1735);
+        table = inst.getTable("SmartDashboard");
+
+
+
+        while(true) {
+//            System.out.println((inst.isConnected()));
+            System.out.println(table.getEntry("Test").getDouble(0.0));
         }
+//        nt.startDSClient();
+
+        //table = nt.getTable("SmartDashboard");
+//        table = nt.getTable("SmartDashboard");
+    }
+    public static void printNumber(){
+        //System.out.println(table.getValue("Test").getDouble());;
+    }
+
+    public static void main(String args[]) throws IOException {
+        create();
+        //printNumber();
+
     }
 }
